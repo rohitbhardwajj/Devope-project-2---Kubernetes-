@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-app
+  labels:
+    app: hero
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hero
+  template:
+    metadata:
+      labels:
+        app: hero
+    spec:
+      containers:
+      - name: mycontainer
+        image: rohit20000/todo-img:latest
+        ports:
+        - containerPort: 5173
+

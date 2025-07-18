@@ -1,28 +1,46 @@
-# kube-todo-app 📝🚀
+📝 kube-todo-app
+A minimal TODO web application deployed on Kubernetes using Deployment and Service configuration. Perfect for beginners learning Kubernetes + Docker + React deployment.
 
-A minimal TODO web app deployed on Kubernetes using a Deployment and Service configuration.
+🧰 Tech Stack
+🐳 Docker
 
-## 🧱 Tech Stack
-- Kubernetes
-- Docker
-- Vite + React (frontend)
+⚙️ Kubernetes
 
----
+⚛️ React (via Vite)
 
-## 🚀 How to Run This Project on Kubernetes
-
-### 1. Clone the Repository
-
+🚀 How to Deploy & Run This App on Kubernetes
+🔁 1. Clone the Repository
+bash
+Copy
+Edit
 git clone https://github.com/your-username/kube-todo-app.git
 cd kube-todo-app
-2. Apply Kubernetes Deployment & Service
+📦 2. Apply Kubernetes Deployment & Service
+bash
+Copy
+Edit
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
-3. Port Forward to Access the App
+This will:
+
+Create a pod with your TODO app container.
+
+Expose it using a Kubernetes Service.
+
+🌐 3. Port Forward to Access the App in Browser
+bash
+Copy
+Edit
 kubectl port-forward --address=0.0.0.0 service/my-service 5173:80
-Now open: http://<EC2-PUBLIC-IP>:5173 in your browser
+Now open your browser and visit:
 
-📁 Files Explained
-deployment.yaml: Deploys the app as a pod with labels and container image
+cpp
+Copy
+Edit
+http://<your-EC2-public-IP>:5173
+(Replace <your-EC2-public-IP> with your actual EC2 IP address)
 
-service.yaml: Exposes the pod via a Kubernetes Service (ClusterIP by default)
+📁 File Breakdown
+File	Description
+deployment.yaml	Defines the Kubernetes Deployment for the TODO app pod
+service.yaml	Exposes the app via a Kubernetes Service (default: ClusterIP)
